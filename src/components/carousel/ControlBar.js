@@ -1,22 +1,26 @@
-import React from 'react';
-import Play from './play';
-import Pause from './Pause';
-import Previous from './Previous';
-import SkipForward from './SkipForward';
-import { Col, Row } from 'react-bootstrap';
+import React from "react";
+import Play from "./Play";
+import Pause from "./Pause";
+import Previous from "./Previous";
+import SkipForward from "./SkipForward";
+import { Col, Row, Button } from "react-bootstrap";
 
-export default (props) => {
+export default props => {
     return (
-        <Row>
+        <Row style={{ paddingLeft: '20%' }}>
             <Col>
-                <Previous />
+                <Previous onClick={props.updateImage} />
             </Col>
             <Col>
-                {props.paused ? <Play /> : <Pause />}
+                {props.paused ? (
+                    <Play onClick={props.playCarousel} />
+                ) : (
+                        <Pause onClick={props.pauseCarousel} />
+                    )}
             </Col>
             <Col>
-                <SkipForward />
+                <SkipForward onClick={props.updateImage} />
             </Col>
         </Row>
-    )
-}
+    );
+};
